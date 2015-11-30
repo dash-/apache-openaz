@@ -16,18 +16,18 @@
 
     *   /opt/jetty8-pap-admin/etc/jetty.xml
 
-        <Set name="port"><Property name="jetty.port" default="9999"/></Set>
-        <Set name="confidentialPort">9998</Set>
+        &lt;Set name="port">&lt;Property name="jetty.port" default="9999"/>&lt;/Set>
+        &lt;Set name="confidentialPort">9998&lt;/Set>
 
     *   /opt/jetty8-pap-rest/etc/jetty.xml
 
-        <Set name="port"><Property name="jetty.port" default="9090"/></Set>
-        <Set name="confidentialPort">9091</Set>
+        &lt;Set name="port">&lt;Property name="jetty.port" default="9090"/>&lt;/Set>
+        &lt;Set name="confidentialPort">9091&lt;/Set>
 
     *   /opt/jetty8-pdp-rest/etc/jetty.xml
 
-        <Set name="port"><Property name="jetty.port" default="8080"/></Set>
-        <Set name="confidentialPort">8081</Set>
+        &lt;Set name="port">&lt;Property name="jetty.port" default="8080"/>&lt;/Set>
+        &lt;Set name="confidentialPort">8081&lt;/Set>
 
 4.  Install Maven
 
