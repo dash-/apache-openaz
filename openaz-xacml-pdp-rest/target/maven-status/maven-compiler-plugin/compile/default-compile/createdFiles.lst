@@ -1,0 +1,6 @@
+org/apache/openaz/xacml/rest/XACMLPdpLoader.class
+org/apache/openaz/xacml/rest/XACMLPdpServlet$PutRequest.class
+org/apache/openaz/xacml/rest/impl/XACMLPdpPolicyFinderFactory.class
+org/apache/openaz/xacml/rest/XACMLPdpServlet.class
+org/apache/openaz/xacml/rest/XACMLPdpRegisterThread.class
+org/apache/openaz/xacml/rest/impl/XACMLPdpPIPFinderFactory.class

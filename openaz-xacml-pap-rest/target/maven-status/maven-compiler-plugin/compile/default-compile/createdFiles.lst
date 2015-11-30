@@ -1,0 +1,5 @@
+org/apache/openaz/xacml/rest/XACMLPapServlet.class
+org/apache/openaz/xacml/rest/XACMLPapServlet$Heartbeat.class
+org/apache/openaz/xacml/rest/XACMLPapServlet$NotifyACThread.class
+org/apache/openaz/xacml/rest/XACMLPapServlet$UpdatePDPThread.class
+org/apache/openaz/xacml/rest/XACMLPapServlet$1.class

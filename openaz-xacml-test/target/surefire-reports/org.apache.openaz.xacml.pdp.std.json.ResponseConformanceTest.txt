@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.apache.openaz.xacml.pdp.std.json.ResponseConformanceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.053 sec - in org.apache.openaz.xacml.pdp.std.json.ResponseConformanceTest
