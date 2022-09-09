@@ -466,8 +466,7 @@ public class GitRepositoryContainer extends ItemSetChangeNotifier implements Con
         // Try to match all roots
         for (int i = 0; i < roots.length; i++) {
             try {
-                val |= ((File) itemId).getCanonicalPath().startsWith(
-                        roots[i].getCanonicalPath());
+                val |= ((File)itemId).getCanonicalFile().toPath().startsWith(roots[i].getCanonicalFile().toPath());
             } catch (final IOException e) { //NOPMD
                 // Exception ignored
             }
