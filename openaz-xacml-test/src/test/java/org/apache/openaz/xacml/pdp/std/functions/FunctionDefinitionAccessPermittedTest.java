@@ -39,6 +39,7 @@ import javax.xml.namespace.NamespaceContext;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -246,7 +247,7 @@ public class FunctionDefinitionAccessPermittedTest {
 
             // single Content in the Resources section (normal valid request)
             String reqString = reqStrMainResourceStart + reqStrContentMdRecordSimpson + reqStrResourceAllEnd;
-            File tFile = File.createTempFile("functionJunit", "request");
+            File tFile = Files.createTempFile("functionJunit", "request").toFile();
             BufferedWriter bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -257,7 +258,7 @@ public class FunctionDefinitionAccessPermittedTest {
             // Resources included twice
             reqString = reqStrMainResourceStart + reqStrContentMdRecordSimpson + reqStrResourceEnd
                         + reqStrResourceStart + reqStrContentMdRecordSimpson + reqStrResourceAllEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -268,7 +269,7 @@ public class FunctionDefinitionAccessPermittedTest {
             // Content included twice - error
             reqString = reqStrMainResourceStart + reqStrContentMdRecordSimpson + reqStrContentMdRecordSimpson
                         + reqStrResourceAllEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -285,7 +286,7 @@ public class FunctionDefinitionAccessPermittedTest {
             // content included in both Resource and Action - ok
             reqString = reqStrMainResourceStart + reqStrContentMdRecordSimpson + reqStrResourceEnd
                         + reqStrActionStart + reqStrContentMdRecordSimpson + reqStrActionEnd + reqStrMainEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -296,7 +297,7 @@ public class FunctionDefinitionAccessPermittedTest {
             // Content included only in Action - missing content produces non-error result according to spec
             reqString = reqStrMainResourceStart + reqStrResourceEnd + reqStrActionStart
                         + reqStrContentMdRecordSimpson + reqStrActionEnd + reqStrMainEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -313,7 +314,7 @@ public class FunctionDefinitionAccessPermittedTest {
             // Bad XML - Content not under a Category
             reqString = reqStrMainStart + reqStrContentMdRecordSimpson + reqStrResourceStart
                         + reqStrResourceEnd + reqStrActionStart + reqStrActionEnd + reqStrMainEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -329,7 +330,7 @@ public class FunctionDefinitionAccessPermittedTest {
 
             // Bad XML - Content is not valid XML
             reqString = reqStrMainResourceStart + reqStrMalformedContent + reqStrResourceAllEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();

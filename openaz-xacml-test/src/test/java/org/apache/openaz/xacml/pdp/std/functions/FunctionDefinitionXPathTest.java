@@ -29,6 +29,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.math.BigInteger;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -334,7 +335,7 @@ public class FunctionDefinitionXPathTest {
 
             // single Content in the Resources section (normal valid request)
             String reqString = reqStrMainResourceStart + reqStrContentMdRecord + reqStrResourceAllEnd;
-            File tFile = File.createTempFile("functionJunit", "request");
+            File tFile = Files.createTempFile("functionJunit", "request").toFile();
             BufferedWriter bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -345,7 +346,7 @@ public class FunctionDefinitionXPathTest {
             // Resources included twice
             reqString = reqStrMainResourceStart + reqStrContentMdRecord + reqStrResourceEnd
                         + reqStrResourceStart + reqStrContentMdRecord + reqStrResourceAllEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -356,7 +357,7 @@ public class FunctionDefinitionXPathTest {
             // content included in both Resource and Action - ok
             reqString = reqStrMainResourceStart + reqStrContentMdRecord + reqStrResourceEnd
                         + reqStrActionStart + reqStrContentMdRecord + reqStrActionEnd + reqStrMainEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -367,7 +368,7 @@ public class FunctionDefinitionXPathTest {
             // Content included only in Action - missing content produces non-error result according to spec
             reqString = reqStrMainResourceStart + reqStrResourceEnd + reqStrActionStart
                         + reqStrContentMdRecord + reqStrActionEnd + reqStrMainEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -386,7 +387,7 @@ public class FunctionDefinitionXPathTest {
             // Content included twice - error
             reqString = reqStrMainResourceStart + reqStrContentMdRecord + reqStrContentMdRecord
                         + reqStrResourceAllEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -403,7 +404,7 @@ public class FunctionDefinitionXPathTest {
             // Bad XML - Content not under a Category
             reqString = reqStrMainStart + reqStrContentMdRecord + reqStrResourceStart + reqStrResourceEnd
                         + reqStrActionStart + reqStrActionEnd + reqStrMainEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
@@ -419,7 +420,7 @@ public class FunctionDefinitionXPathTest {
 
             // Bad XML - Content is not valid XML
             reqString = reqStrMainResourceStart + reqStrMalformedContent + reqStrResourceAllEnd;
-            tFile = File.createTempFile("functionJunit", "request");
+            tFile = Files.createTempFile("functionJunit", "request").toFile();
             bw = new BufferedWriter(new FileWriter(tFile));
             bw.append(reqString);
             bw.flush();
